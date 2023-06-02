@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <header>
+      <div class="name">FearFall.Ai</div>
+      <div class="right">
+        <a href="/">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('ttp') }}">Text To PPT</a>
+        <a href="{{ url_for('ptt') }}">PPT To Text</a>
+      </div>
+    </header>
+  </nav>
+
+  <div class="img">
+    <div class="content">
+      <h1>FearFall.Ai</h1>
+      <p>No more stage fear when we are here!!</p>
+      <a href="#bottom" style="width: fit-content;">
+        <button style="background-color: white; color: black; font-weight: 700; ">Get Started</button>
+      </a>
+    </div>
+  </div>
+
+  <section class="down" id="bottom" style="background-image: url('/static/back.jpg');">
+    <h1>Welcome to Presentation Converter</h1>
+    <div class="box">
+      <h2>PPT to Text</h2>
+      <p>Convert your Powerpoint presentation into text format</p>
+      <a href="{{ url_for('ptt') }}">
+        <button>Convert PPT to Text</button>
+      </a>
+    </div>
+    <div class="box">
+      <h2>Text to PPT</h2>
+      <p>Enter the prompt to convert text into a PDF document</p>
+      <a href="{{ url_for('ttp') }}">
+        <button>Convert Text to PDF</button>
+      </a>
+    </div>
+  </section>
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <nav>
+    <header>
+      <div class="name">FearFall.Ai</div>
+      <div class="right">
+        <a href="/">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('ttp') }}">Text To PPT</a>
+        <a href="{{ url_for('ptt') }}">PPT To Text</a>
+      </div>
+    </header>
+  </nav>
+
+  <div class="img">
+    <div class="container">
+      <h1>Presentation Generator</h1>
+      <div class="form-group">
+        <label for="topic">Enter the Presentation Topic:</label> </br>
+        <input type="text" id="topic" class="form-control" placeholder="e.g., Sustainable Development">
+      </div>
+      <button id="generateBtn"  class="btn btn-primary">Select Template</button>
+      <div id="output">
+        <h2>Your Presentation:</h2>
+        <div id="slides"></div>
+        <button id="downloadBtn" style="margin-right: 175px;">Download Presentation</button>
+        <!-- <button id="show">Descriptive Test</button> -->
+        <div class="popup" onclick="myFunction()">Descriptive Test
+          <div class="popuptext" id="myPopup">
+            sdfsfdfkldaflaskldfksjajfs
+            <button>download</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+
+    // Function to handle button click event
+    async function generatePresentation() {
+      // Get the user input
+      var topic = document.getElementById('topic').value;
+
+      // Send the topic to the server and handle the response
+      // You'll need to implement this part to communicate with the backend and retrieve the generated presentation
+
+      // For demonstration purposes, let's assume we received the presentation as an array of slides
+      // var presentation = [
+      //   { title: 'Slide 1', content: 'This is the first slide' },
+      //   { title: 'Slide 2', content: 'This is the second slide' },
+      //   { title: 'Slide 3', content: 'This is the third slide' }
+      // ];
+    await  fetch(`http://localhost:5000/get_gen_pres/${topic}`)
+  .then(response => {
+    // Convert response to text
+    return response.text();
+  })
+  .then(data => {
+    // Process the response data
+    presentation = JSON(data)
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+  console.log(presentation)
+
+      // Update the UI with the generated presentation
+      var slidesContainer = document.getElementById('slides');
+      slidesContainer.innerHTML = '';
+      presentation.forEach(function (slide) {
+        var slideElement = document.createElement('div');
+        slideElement.classList.add('slide');
+        slideElement.innerHTML = `
+          <h3>${slide.title}</h3>
+          <p>${slide.content}</p>
+        `;
+        slidesContainer.appendChild(slideElement);
+      });
+
+      // Show the generated presentation and download button
+      document.getElementById('output').style.display = 'block';
+    }
+
+    // Attach click event listener to the Generate Presentation button
+    document.getElementById('generateBtn').addEventListener('click', generatePresentation);
+  </script>
+</body>
+
+</html>
