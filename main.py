@@ -21,6 +21,14 @@ def ttp():
 def ptt():
     return render_template("ptt.html")
 
+@app.route("/tips")
+def tips():
+    return render_template("tips.html")
+
+@app.route("/community")
+def community():
+    return render_template("community.html")
+
 @app.route("/get_gen_pres/<query>", methods=['GET','POST'])
 # Set up OpenAI API credentials
 def generated_text(query):

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comment Section</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='community.css') }}">
+</head>
+<body>
+
+  <nav>
+    <header>
+      <div class="name">FearFall.Ai</div>
+      <div class="right">
+        <a href="/">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('ttp') }}">Text To PPT</a>
+        <a href="{{ url_for('ptt') }}">PPT To Text</a>
+        <a>Community</a>
+        <a>Payment</a>
+        <a>Q/A</a>
+      </div>
+    </header>
+  </nav>
+  <br><br><br><br><br>
+
+<div class="com">
+  <h1>Community</h1>
+
+
+  <!-- Display existing comments -->
+  <div id="comments">
+    <!-- Comment 1 -->
+    <div class="comment">
+      <p>John Doe</p>
+      <p>This is the first comment.</p>
+    </div>
+
+    <!-- Comment 2 -->
+    <div class="comment">
+      <p>Jane Smith</p>
+      <p>This is another comment.</p>
+    </div>
+  </div>
+
+  <!-- Comment Form -->
+  <h3>Leave a Comment</h3>
+  <form action="submit_comment.php" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>

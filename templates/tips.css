@@ -1,0 +1,76 @@
+body {
+    background-image: url("lappy.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+  
+    margin: 0;
+    padding: 20px;
+}
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .tips-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .tip {
+    margin-bottom: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    opacity: 0.8;
+  }
+  
+  .tip h2 {
+    color: #000000;
+  }
+  
+  .tip p {
+    margin-top: 10px;
+  }
+  
+  h1{
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 40;
+    color: white;
+  }
+
+  header .right {
+    display: flex;
+    gap: 20px;
+    margin: 5px;
+  }
+
+  header {
+    width: 90%;
+    display: flex;
+    color: white;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  nav {
+    background-color: black;
+    z-index: 50;
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+   
+ header .name {
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+  }
